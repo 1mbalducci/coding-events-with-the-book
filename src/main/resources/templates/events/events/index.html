@@ -1,21 +1,24 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="https://www.thymeleaf.org/">
-<head>
-    <meta charset="UTF-8">
-    <title>Coding Events</title>
+<head th:replace="fragments :: head">
 </head>
-<body>
+<body class="container">
 
 <h1>All Events</h1>
 
 <nav th:replace="fragments :: navigation"></nav>
 
 
-<p th:unless="${events} and ${events.size()>No events!}"></p>
-    <ul>
+<!--<p th:unless="${events} and ${events.size()>No events!}"></p>-->
+    <table class="table">
+        <thead>
+        <tr>
+            <th>Name</th>
+        </tr>
+        </thead>
         <th:block th:each="event : ${events"}>
             <li th:text="${event}"></li>
         </th:block>
-    </ul>
+    </table>
 </body>
 </html>

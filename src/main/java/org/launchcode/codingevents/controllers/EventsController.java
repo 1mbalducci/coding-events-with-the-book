@@ -18,13 +18,13 @@ public class EventsController {
     @GetMapping
     public String displayAllEvents(Model model){
         model.addAttribute("events", events);
-        return "events/index";
+        return "events/events/index";
     }
 
     //lives at /events/create
     @GetMapping("create")
     public String renderCreateEventForm(){
-        return "events/create";
+        return "events/events/create";
     }
 
     //lives at /events/create. it can be names the same as the method about it because they handle different types of request
