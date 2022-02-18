@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org/">
+<head th:replace="fragments :: head"></head>
+<body class="container">
+
+
+<nav th:replace="fragments :: navigation"></nav>
+<body>
+
+<form method="post">
+
+    <th:block th:each="event : ${events}">
+        <div class="form-group">
+            <label>
+                <span th:text="${event.name}"></span>
+                //the event.id here says "if this check box is checked associate the id of that item to be deleted
+                <input type="checkbox" name="eventIds" th:value="${event.id}" class="form-control">
+            </label>
+        </div>
+    </th:block>
+
+    <input type="submit" value="Delete Selected Events" class="btn btn-danger">
+</form>
+
+
+</form>
+
+</body>
+</html>

@@ -1,24 +1,46 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="https://www.thymeleaf.org/">
-<head th:replace="fragments :: head">
-</head>
+<head th:replace="fragments :: head"></head>
 <body class="container">
 
-
-<h1>Create Event</h1>
 
 <nav th:replace="fragments :: navigation"></nav>
 
 
-<form method="post" action="/events/create">
+<p th:text="${errorMsg}" style="color:red;"></p>
+
+<!--<form method="post" action="/events/create">-->
+<form method="post">
    <div class="form-group">
        <label> Name
-             <input type="text" name="eventName" class="form-control" >
+<!--          <input type="text" name="name" class="form-control">-->
+           //because an empty constructor is used in the Event class and
+           the displayCreateEventForm in /EventsController models an empty
+           Event object, it can pull from those fields and we don't need
+           type="text" name="name" anymore
+           <input th:field="${event.name}" class="form-control" >
        </label>
+       <p class="error" th:errors="${event.name}"></p>
    </div>
-       <div class="form-group">
-    <input type="submit" value="Create" class="btn btn-success">
-       </div>
+
+    <div class="form-group">
+        <label>Description
+            <input th:field="${event.description}" class="form-control">
+        </label>
+        <p class="error" th:errors="${event.description}"></p>
+    </div>
+
+    <div class="form-group">
+        <label>Contact Email
+            <input th:field="${event.contactEmail}" class="form-control">
+
+        </label>
+    </div>
+
+
+    <div class="form-group">
+        <input type="submit" value="Create" class="btn btn-success">
+    </div>
 </form>
 
 
