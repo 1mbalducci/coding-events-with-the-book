@@ -36,7 +36,6 @@ public class EventsController {
     {
         if (errors.hasErros()) {
             model.addAttribute("title","Create Event");
-            model.addAttribute("errorMsg","Bad data!");
             return "events/events/create";
 
 

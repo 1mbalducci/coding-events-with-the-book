@@ -1,4 +1,10 @@
 body {
-    font-size: 18px;
+    font-size: 14px;
     color:purple;
+}
+
+
+// this stats that things in the error class will be red.
+.error{
+    color: red;
 }

@@ -7,8 +7,9 @@
 <nav th:replace="fragments :: navigation"></nav>
 
 
-<p th:text="${errorMsg}" style="color:red;"></p>
-
+<!--<p th:text="${errorMsg}" style="color:red;"></p>-->
+No longer need this error message because we are using th:errors
+to figure out which cells are creating the errors.
 <!--<form method="post" action="/events/create">-->
 <form method="post">
    <div class="form-group">
@@ -33,7 +34,7 @@
     <div class="form-group">
         <label>Contact Email
             <input th:field="${event.contactEmail}" class="form-control">
-
+            <p class="error" th:errors="${event.contactEmail}"></p>
         </label>
     </div>
 
